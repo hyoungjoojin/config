@@ -18,11 +18,15 @@ lvim.plugins = {
 		},
 	},
 
-	{
-		"mattn/emmet-vim",
-	},
+	-- LSP
+	{ "folke/trouble.nvim" }, -- Display diagnostics information in sidebar
+	{ "hedyhli/outline.nvim" }, -- Display code AST in sidebar
+
+	{ "mattn/emmet-vim" },
 }
 
+require("outline").setup({})
+require("trouble").setup({})
 local formatters = require("lvim.lsp.null-ls.formatters")
 formatters.setup({
 	{ name = "prettier", filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact" } },
@@ -44,4 +48,15 @@ lvim.builtin.which_key.mappings["-"] = {
 lvim.builtin.which_key.mappings["_"] = {
 	"<cmd>split<CR>",
 	"Horizontal Split",
+}
+
+-- LSP
+lvim.builtin.which_key.mappings["lo"] = {
+	":Outline<CR>",
+	"Toggle Outline",
+}
+
+lvim.builtin.which_key.mappings["lw"] = {
+	":Trouble diagnostics toggle<CR>",
+	"Toggle Diagnostics.",
 }
