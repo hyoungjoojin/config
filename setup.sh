@@ -6,3 +6,4 @@ CONFIG_DIRECTORY="$HOME/.config"
 BACKUP_DIRECTORY="$CONFIG_DIRECTORY/"
 
 ln -s "$SCRIPT_DIR/images" "$CONFIG_DIRECTORY/images"
+ln -s "$SCRIPT_DIR/tmux/.tmux.conf" "$HOME/.tmux.conf"
